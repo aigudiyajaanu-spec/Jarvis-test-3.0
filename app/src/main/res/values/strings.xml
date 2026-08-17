@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">JARVIS</string>
+    <string name="jarvis_online">JARVIS PROTOCOL ONLINE</string>
+    <string name="tap_to_speak">TAP REACTOR TO COMMUNICATE</string>
+    <string name="listening_status">LISTENING...</string>
+    <string name="processing_status">ANALYZING QUERY...</string>
+    <string name="speaking_status">TRANSMITTING AUDIO...</string>
+</resources>

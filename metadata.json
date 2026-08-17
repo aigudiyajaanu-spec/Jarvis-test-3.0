@@ -1,0 +1,7 @@
+{
+  "name": "JARVIS",
+  "description": "Real-time voice-to-voice AI assistant with vision HUD, live audio streaming, and system protocols.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
