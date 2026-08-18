@@ -103,7 +103,7 @@ class SpeechManager(private val context: Context) {
         if (!SpeechRecognizer.isRecognitionAvailable(context)) {
             _isListening.value = false
             _micRmsDb.value = 0f
-            onSpeechError?.invoke("Speech recognition is unavailable on this device.")
+            onSpeechError?.invoke("Voice recognition unavailable in this emulator. Please type in the command bar or tap a quick chip below, Sir.")
             return
         }
 
@@ -147,12 +147,12 @@ class SpeechManager(private val context: Context) {
                         }
 
                         val errorMessage = when (error) {
-                            SpeechRecognizer.ERROR_NO_MATCH -> "No microphone voice detected. Tap a command chip or type below, Sir."
-                            SpeechRecognizer.ERROR_SPEECH_TIMEOUT -> "Listening timed out. Tap a command chip or speak again, Sir."
-                            SpeechRecognizer.ERROR_AUDIO -> "Audio recording issue. Please check microphone permissions."
+                            SpeechRecognizer.ERROR_NO_MATCH -> "No voice detected. Tap the reactor, use quick chips, or type below, Sir."
+                            SpeechRecognizer.ERROR_SPEECH_TIMEOUT -> "Listening timed out. Tap a command chip or type below, Sir."
+                            SpeechRecognizer.ERROR_AUDIO -> "Audio recording issue. Please check microphone permissions or type below."
                             SpeechRecognizer.ERROR_NETWORK, SpeechRecognizer.ERROR_NETWORK_TIMEOUT -> "Speech network connection issue. You can type in the HUD bar, Sir."
-                            SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS -> "Microphone permission required."
-                            else -> "Audio recognition idle. Tap reactor or type a command, Sir."
+                            SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS -> "Microphone permission required. Please grant permission or type below."
+                            else -> "Audio input ended. Tap reactor, quick chips, or type below, Sir."
                         }
                         onSpeechError?.invoke(errorMessage)
                     }
@@ -168,7 +168,7 @@ class SpeechManager(private val context: Context) {
                             _partialTranscript.value = text
                             onSpeechRecognized?.invoke(text)
                         } else {
-                            onSpeechError?.invoke("No microphone voice detected. Tap a command chip or type below, Sir.")
+                            onSpeechError?.invoke("No voice detected. Tap a command chip or type below, Sir.")
                         }
                     }
 
